@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residência 2026 | Estratégia de Aprovação</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for Graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Marked for Markdown Parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 400px; }
+        }
+        .tab-active {
+            border-bottom: 2px solid #ea580c;
+            color: #ea580c;
+            font-weight: 600;
+        }
+        .tab-inactive {
+            color: #78716c;
+            border-bottom: 2px solid transparent;
+        }
+        .tab-inactive:hover {
+            color: #44403c;
+            border-bottom: 2px solid #d6d3d1;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        /* Markdown Styles */
+        .prose p { margin-bottom: 0.5em; }
+        .prose strong { color: #ea580c; }
+        .prose ul { list-style-type: disc; margin-left: 1.5em; }
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #ea580c;
+            width: 20px;
+            height: 20px;
+            -webkit-animation: spin 1s linear infinite;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white border-b border-stone-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="h-8 w-8 bg-orange-600 rounded-md flex items-center justify-center text-white font-bold text-lg">R</div>
+                    <span class="font-bold text-xl tracking-tight text-stone-900">Residência<span class="text-orange-600">2026</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="switchTab('overview')" id="nav-overview" class="tab-active py-5 px-1 transition-colors">Visão Geral</button>
+                    <button onclick="switchTab('methods')" id="nav-methods" class="tab-inactive py-5 px-1 transition-colors">Métodos de Estudo</button>
+                    <button onclick="switchTab('revision')" id="nav-revision" class="tab-inactive py-5 px-1 transition-colors">A Arte da Revisão</button>
+                    <button onclick="switchTab('plan')" id="nav-plan" class="tab-inactive py-5 px-1 transition-colors">O Plano Prático</button>
+                    <button onclick="switchTab('ai-assistant')" id="nav-ai-assistant" class="tab-inactive py-5 px-1 transition-colors flex items-center gap-1">Assistente IA ✨</button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                   <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="text-stone-600 p-2">Menu ☰</button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-stone-50 border-b border-stone-200">
+            <button onclick="switchTab('overview')" class="block w-full text-left px-4 py-3 hover:bg-stone-100 border-b border-stone-200">Visão Geral</button>
+            <button onclick="switchTab('methods')" class="block w-full text-left px-4 py-3 hover:bg-stone-100 border-b border-stone-200">Métodos de Estudo</button>
+            <button onclick="switchTab('revision')" class="block w-full text-left px-4 py-3 hover:bg-stone-100 border-b border-stone-200">A Arte da Revisão</button>
+            <button onclick="switchTab('plan')" class="block w-full text-left px-4 py-3 hover:bg-stone-100 border-b border-stone-200">O Plano Prático</button>
+            <button onclick="switchTab('ai-assistant')" class="block w-full text-left px-4 py-3 hover:bg-stone-100 font-medium text-orange-600">Assistente IA ✨</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- SECTION 1: OVERVIEW -->
+        <section id="overview" class="space-y-8 animate-fade-in">
+            <div class="bg-white rounded-xl p-8 card-shadow border border-stone-100">
+                <h1 class="text-3xl font-bold text-stone-900 mb-4">O Cenário: Outubro de 2026</h1>
+                <p class="text-lg text-stone-600 leading-relaxed mb-6">
+                    Você tem um horizonte temporal favorável. A prova será realizada em <strong>Outubro de 2026</strong>. 
+                    Isso significa que você não precisa apenas "sobreviver" ao conteúdo, mas pode <strong>construir uma base sólida</strong>. 
+                    Abaixo está a macroestratégia dividida em fases.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                    <!-- Phase 1 -->
+                    <div class="bg-teal-50 border-l-4 border-teal-500 p-5 rounded-r-lg">
+                        <span class="text-xs font-bold uppercase text-teal-700 tracking-wider">Fase 1: Agora - Dez 2025</span>
+                        <h3 class="font-bold text-lg mt-1 text-stone-800">Construção de Base</h3>
+                        <p class="text-sm text-stone-600 mt-2">Foco em teoria aprofundada, entendimento de fisiopatologia e criação de material de revisão.</p>
+                        <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-teal-800">
+                            <span class="px-2 py-1 bg-teal-200 rounded">80% Teoria</span>
+                            <span class="px-2 py-1 bg-white border border-teal-200 rounded">20% Questões</span>
+                        </div>
+                    </div>
+                    <!-- Phase 2 -->
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-5 rounded-r-lg">
+                        <span class="text-xs font-bold uppercase text-amber-700 tracking-wider">Fase 2: Jan 2026 - Jun 2026</span>
+                        <h3 class="font-bold text-lg mt-1 text-stone-800">Consolidação</h3>
+                        <p class="text-sm text-stone-600 mt-2">Inversão da polaridade. O estudo passa a ser guiado por questões e as lacunas teóricas são preenchidas.</p>
+                        <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-amber-800">
+                            <span class="px-2 py-1 bg-amber-200 rounded">50% Revisão</span>
+                            <span class="px-2 py-1 bg-white border border-amber-200 rounded">50% Questões</span>
+                        </div>
+                    </div>
+                    <!-- Phase 3 -->
+                    <div class="bg-orange-50 border-l-4 border-orange-600 p-5 rounded-r-lg">
+                        <span class="text-xs font-bold uppercase text-orange-700 tracking-wider">Fase 3: Jul 2026 - Out 2026</span>
+                        <h3 class="font-bold text-lg mt-1 text-stone-800">Sprint Final</h3>
+                        <p class="text-sm text-stone-600 mt-2">Foco total em provas na íntegra, temas incidentes e "decorebas" de curto prazo.</p>
+                        <div class="mt-3 flex items-center gap-2 text-xs font-semibold text-orange-800">
+                            <span class="px-2 py-1 bg-orange-200 rounded">100% Prática</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: STUDY METHODS -->
+        <section id="methods" class="hidden space-y-6 animate-fade-in">
+            <div class="bg-white rounded-xl p-6 card-shadow border border-stone-100">
+                <h2 class="text-2xl font-bold text-stone-900 mb-2">Hierarquia da Eficácia</h2>
+                <p class="text-stone-600 mb-6">
+                    Nem toda hora de estudo vale o mesmo. Baseado em estudos de psicologia cognitiva (Dunlosky et al.), classificamos os métodos abaixo. 
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+                    <div class="bg-stone-50 rounded-lg p-4">
+                        <div class="chart-container">
+                            <canvas id="methodsChart"></canvas>
+                        </div>
+                        <p class="text-center text-xs text-stone-400 mt-2">Fonte: Psychological Science in the Public Interest</p>
+                    </div>
+                    <div id="method-details" class="bg-white border border-stone-200 rounded-lg p-6 h-full flex flex-col justify-center">
+                        <!-- Details injected by JS -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: REVISION SCIENCE -->
+        <section id="revision" class="hidden space-y-6 animate-fade-in">
+            <div class="bg-white rounded-xl p-6 card-shadow border border-stone-100">
+                <h2 class="text-2xl font-bold text-stone-900 mb-2">A Curva do Esquecimento</h2>
+                <p class="text-stone-600 mb-6">
+                    Seu cérebro é programado para esquecer o que não é útil. Sem revisão, você perderá 80% do que estudou hoje em uma semana.
+                </p>
+                <div class="chart-container mb-6">
+                    <canvas id="forgettingCurveChart"></canvas>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 mb-6">
+                    <button onclick="toggleRevision(false)" class="px-4 py-2 bg-stone-200 hover:bg-stone-300 text-stone-700 rounded-md font-medium transition">Ver Sem Revisão</button>
+                    <button onclick="toggleRevision(true)" class="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-md font-medium transition">Ver Com Revisão Espaçada</button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-stone-50 p-5 rounded-lg border border-stone-200">
+                        <h3 class="font-bold text-lg text-teal-800 mb-2">A Melhor Maneira: Evocação Espaçada</h3>
+                        <ul class="space-y-3 text-stone-700 text-sm">
+                            <li class="flex items-start gap-2"><span class="text-teal-600 font-bold">•</span> <span><strong>Teste-se:</strong> Tente lembrar antes de olhar a resposta.</span></li>
+                            <li class="flex items-start gap-2"><span class="text-teal-600 font-bold">•</span> <span><strong>Use Flashcards (Anki):</strong> O algoritmo organiza automaticamente as revisões.</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-stone-50 p-5 rounded-lg border border-stone-200">
+                        <h3 class="font-bold text-lg text-amber-800 mb-2">Ciclo de Ouro</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between text-sm bg-white p-2 rounded border border-stone-200"><span>Dia 0</span> <span class="font-bold text-stone-400">Teoria + Cards</span></div>
+                            <div class="flex items-center justify-between text-sm bg-white p-2 rounded border border-stone-200"><span>Dia 1</span> <span class="font-bold text-teal-600">Flashcards</span></div>
+                            <div class="flex items-center justify-between text-sm bg-white p-2 rounded border border-stone-200"><span>Dia 7</span> <span class="font-bold text-teal-600">Questões</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: PRACTICAL PLAN -->
+        <section id="plan" class="hidden space-y-6 animate-fade-in">
+            <div class="bg-white rounded-xl p-8 card-shadow border border-stone-100">
+                <h2 class="text-2xl font-bold text-stone-900 mb-6">Planejamento Prático</h2>
+                <div class="space-y-8">
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold flex-shrink-0">1</div><div class="h-full w-0.5 bg-stone-200 my-2"></div></div>
+                        <div>
+                            <h3 class="font-bold text-lg text-stone-900">Rotina Sustentável</h3>
+                            <p class="text-stone-600 text-sm mt-1"><strong>Seg-Sex:</strong> Matéria nova + 30 min Anki. <strong>Sábado:</strong> Questões da semana.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold flex-shrink-0">2</div><div class="h-full w-0.5 bg-stone-200 my-2"></div></div>
+                        <div>
+                            <h3 class="font-bold text-lg text-stone-900">Engenharia Reversa</h3>
+                            <p class="text-stone-600 text-sm mt-1">Faça 10 questões antes de ler a teoria. Erre para aprender.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex flex-col items-center"><div class="w-8 h-8 rounded-full bg-stone-800 text-white flex items-center justify-center font-bold flex-shrink-0">3</div></div>
+                        <div>
+                            <h3 class="font-bold text-lg text-stone-900">Caderno de Erros</h3>
+                            <p class="text-stone-600 text-sm mt-1">Transforme cada erro em um Flashcard.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: AI ASSISTANT -->
+        <section id="ai-assistant" class="hidden space-y-6 animate-fade-in">
+            <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-8 card-shadow border border-orange-100">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+                    <h2 class="text-2xl font-bold text-stone-900 flex items-center gap-2">
+                        Assistente de Estudos <span class="text-2xl">✨</span>
+                    </h2>
+                    <!-- API Key Input for Public Use -->
+                    <div class="mt-4 md:mt-0 w-full md:w-auto">
+                        <input type="password" id="api-key-input" placeholder="Cole sua Gemini API Key aqui" class="text-sm px-3 py-2 border border-orange-200 rounded-lg w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white" onchange="localStorage.setItem('geminiKey', this.value)">
+                        <p class="text-[10px] text-stone-500 mt-1">A chave é salva apenas no seu navegador.</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Tool 1: Flashcard Generator -->
+                    <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm flex flex-col h-full">
+                        <div class="mb-4">
+                            <h3 class="font-bold text-lg text-stone-800 flex items-center gap-2">
+                                <span class="bg-teal-100 text-teal-700 p-1.5 rounded text-sm">Ferramenta 1</span>
+                                Gerador de Flashcards
+                            </h3>
+                            <p class="text-sm text-stone-500 mt-1">Digite um tema (ex: "Tratamento da HAS") e a IA criará uma carta Anki.</p>
+                        </div>
+                        <div class="space-y-3 flex-grow">
+                            <input type="text" id="flashcard-topic" placeholder="Digite o tema aqui..." class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                            <button onclick="generateFlashcard()" class="w-full py-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition flex justify-center items-center gap-2">
+                                <span id="flashcard-btn-text">Gerar Flashcard ✨</span>
+                                <div id="flashcard-loader" class="loader hidden"></div>
+                            </button>
+                        </div>
+                        <div id="flashcard-result" class="mt-6 hidden bg-stone-50 p-4 rounded border border-stone-200 text-left">
+                            <div class="mb-3 pb-3 border-b border-stone-200">
+                                <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Frente (Pergunta)</span>
+                                <p id="flashcard-front" class="font-semibold text-stone-900 mt-1 text-lg"></p>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-stone-400 uppercase tracking-wide">Verso (Resposta)</span>
+                                <div id="flashcard-back" class="text-stone-700 mt-1 prose prose-sm max-w-none"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tool 2: Strategy Coach -->
+                    <div class="bg-white p-6 rounded-lg border border-stone-200 shadow-sm flex flex-col h-full">
+                        <div class="mb-4">
+                            <h3 class="font-bold text-lg text-stone-800 flex items-center gap-2">
+                                <span class="bg-amber-100 text-amber-700 p-1.5 rounded text-sm">Ferramenta 2</span>
+                                Coach Estratégico
+                            </h3>
+                            <p class="text-sm text-stone-500 mt-1">Dúvida sobre como estudar? A IA te aconselha.</p>
+                        </div>
+                        <div class="space-y-3 flex-grow">
+                            <textarea id="coach-query" rows="2" placeholder="Ex: Não consigo me concentrar lendo..." class="w-full px-4 py-2 border border-stone-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none resize-none"></textarea>
+                            <button onclick="askCoach()" class="w-full py-2.5 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-medium transition flex justify-center items-center gap-2">
+                                <span id="coach-btn-text">Pedir Conselho ✨</span>
+                                <div id="coach-loader" class="loader hidden" style="border-top-color: white;"></div>
+                            </button>
+                        </div>
+                        <div id="coach-result" class="mt-6 hidden bg-stone-50 p-4 rounded border border-stone-200 text-left">
+                            <div class="flex items-start gap-3">
+                                <div class="text-2xl mt-1">💡</div>
+                                <div id="coach-response" class="text-stone-700 prose prose-sm max-w-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-100 border-t border-stone-200 mt-12 py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center text-stone-500 text-sm">
+            <p>Residência Médica 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // Check for saved key on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedKey = localStorage.getItem('geminiKey');
+            if(savedKey) document.getElementById('api-key-input').value = savedKey;
+            
+            // Init charts
+            initMethodsChart();
+        });
+
+        // --- Gemini API Configuration ---
+        const model = "gemini-1.5-flash"; 
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+
+        async function callGemini(promptText) {
+            const apiKey = document.getElementById('api-key-input').value || localStorage.getItem('geminiKey');
+            
+            if (!apiKey) {
+                alert("Por favor, insira sua chave de API do Gemini no campo acima para usar a IA.");
+                return null;
+            }
+
+            try {
+                const response = await fetch(`${apiUrl}?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: promptText }] }]
+                    })
+                });
+
+                if (!response.ok) throw new Error(`API Error: ${response.status}`);
+                const data = await response.json();
+                return data.candidates[0].content.parts[0].text;
+            } catch (error) {
+                console.error("Gemini API Failed:", error);
+                alert("Erro na API. Verifique sua chave ou tente novamente.");
+                return null;
+            }
+        }
+
+        // --- AI Features ---
+        async function generateFlashcard() {
+            const topic = document.getElementById('flashcard-topic').value;
+            if (!topic) return alert("Por favor, digite um tema.");
+
+            toggleLoading('flashcard', true);
+
+            const prompt = `Crie UM flashcard difícil de residência médica sobre: "${topic}". 
+            Retorne APENAS JSON válido: {"pergunta": "...", "resposta": "..."}. Sem markdown.`;
+
+            const rawText = await callGemini(prompt);
+            
+            if (rawText) {
+                try {
+                    const cleanJson = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
+                    const data = JSON.parse(cleanJson);
+                    document.getElementById('flashcard-front').textContent = data.pergunta;
+                    document.getElementById('flashcard-back').innerHTML = marked.parse(data.resposta);
+                    document.getElementById('flashcard-result').classList.remove('hidden');
+                } catch(e) { console.error(e); }
+            }
+            toggleLoading('flashcard', false);
+        }
+
+        async function askCoach() {
+            const query = document.getElementById('coach-query').value;
+            if (!query) return alert("Por favor, digite sua dúvida.");
+
+            toggleLoading('coach', true);
+            const prompt = `Seja um mentor de residência médica. Dê um conselho curto e prático para: "${query}"`;
+            const responseText = await callGemini(prompt);
+            
+            if (responseText) {
+                document.getElementById('coach-response').innerHTML = marked.parse(responseText);
+                document.getElementById('coach-result').classList.remove('hidden');
+            }
+            toggleLoading('coach', false);
+        }
+
+        function toggleLoading(id, isLoading) {
+            const btnText = document.getElementById(`${id}-btn-text`);
+            const loader = document.getElementById(`${id}-loader`);
+            if (isLoading) {
+                btnText.classList.add('hidden');
+                loader.classList.remove('hidden');
+            } else {
+                btnText.classList.remove('hidden');
+                loader.classList.add('hidden');
+            }
+        }
+
+        // --- UI Logic ---
+        function switchTab(tabId) {
+            document.querySelectorAll('section').forEach(el => el.classList.add('hidden'));
+            document.getElementById(tabId).classList.remove('hidden');
+            
+            document.querySelectorAll('nav button[id^="nav-"]').forEach(btn => {
+                const isTarget = btn.id === `nav-${tabId}`;
+                btn.className = isTarget ? 'tab-active py-5 px-1 transition-colors' : 'tab-inactive py-5 px-1 transition-colors';
+            });
+            
+            if(tabId === 'revision' && !window.revisionChartInit) {
+                initRevisionChart();
+                window.revisionChartInit = true;
+            }
+        }
+
+        // --- Chart Data ---
+        const methodsData = [
+            { label: 'Questões Práticas', score: 95, color: '#ea580c', desc: 'Fazer provas antigas e simulados.' },
+            { label: 'Estudo Espaçado', score: 90, color: '#f97316', desc: 'Distribuir o estudo no tempo.' },
+            { label: 'Intercalação', score: 75, color: '#fbbf24', desc: 'Misturar matérias na sessão.' },
+            { label: 'Auto-explicação', score: 60, color: '#a8a29e', desc: 'Explicar em voz alta.' },
+            { label: 'Releitura', score: 20, color: '#d6d3d1', desc: 'Baixa retenção.' }
+        ];
+
+        function initMethodsChart() {
+            const ctx = document.getElementById('methodsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: methodsData.map(d => d.label),
+                    datasets: [{
+                        data: methodsData.map(d => d.score),
+                        backgroundColor: methodsData.map(d => d.color),
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { x: { max: 100 }, y: { ticks: { autoSkip: false } } },
+                    onClick: (e, els) => { if(els.length) updateMethodDetails(els[0].index); }
+                }
+            });
+            updateMethodDetails(0);
+        }
+
+        function updateMethodDetails(index) {
+            const d = methodsData[index];
+            document.getElementById('method-details').innerHTML = `
+                <h3 class="text-2xl font-bold mb-2" style="color:${d.color}">${d.label}</h3>
+                <p class="text-stone-600">${d.desc}</p>
+                <div class="mt-4 bg-stone-50 p-3 rounded text-sm font-bold">Eficácia: ${d.score}%</div>
+            `;
+        }
+
+        function initRevisionChart() {
+            const ctx = document.getElementById('forgettingCurveChart').getContext('2d');
+            const days = Array.from({length: 31}, (_, i) => i);
+            window.revChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: days,
+                    datasets: [
+                        { label: 'Sem Revisão', data: days.map(d => 100 * Math.exp(-d/3)), borderColor: '#a8a29e', tension: 0.4 },
+                        { label: 'Com Revisão', data: days.map(d => {
+                            if(d<1) return 100; if(d<7) return 100*Math.exp(-(d-1)/8); return 100*Math.exp(-(d-7)/20);
+                        }), borderColor: '#0d9488', hidden: true, tension: 0.4 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        }
+
+        function toggleRevision(show) {
+            if(!window.revChart) return;
+            window.revChart.data.datasets[1].hidden = !show;
+            window.revChart.update();
+        }
+    </script>
+</body>
+</html>
+
